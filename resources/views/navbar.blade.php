@@ -45,8 +45,14 @@
               <hr class="dropdown-divider">
             </li>
             <li class="nav-item dropdown">
-              <a class="nav-Link" href="#" id="navbarDropdownLogOut" role="button"
-                data-bs-toggle="dropdown" aria-expanded="false">Cerrar Sesion</a>
+              <form method="POST" action="{{ route('logout') }}">
+                @csrf
+                <a class="nav-Link" href="{{ route('logout') }}" id="navbarDropdownLogOut" role="button"
+                  data-bs-toggle="dropdown" aria-expanded="false"
+                  onclick="event.preventDefault();this.closest('form').submit();">
+                    {{ __('Cerrar Sesión') }}
+                </a>
+              </form>
             </li>
           </ul>
         </div>
