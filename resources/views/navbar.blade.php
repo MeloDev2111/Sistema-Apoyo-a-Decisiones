@@ -38,21 +38,37 @@
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownIncidencias">
                 <li><a class="dropdown-item" href="">Registrar Incidencia</a></li>
                 <li><a class="dropdown-item" href="">Monitorear Incidencia</a></li>
-
               </ul>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
+            
             <li class="nav-item dropdown">
-              <form method="POST" action="{{ route('logout') }}">
-                @csrf
-                <a class="nav-Link" href="{{ route('logout') }}" id="navbarDropdownLogOut" role="button"
-                  data-bs-toggle="dropdown" aria-expanded="false"
-                  onclick="event.preventDefault();this.closest('form').submit();">
-                    {{ __('Cerrar Sesión') }}
-                </a>
-              </form>
+              <a href="{{ route('register') }}" class="nav-Link" 
+                id="navbarDropdownRegister" role="button">
+                Register
+              </a>
+            </li>
+
+            <li class="nav-item dropdown">
+              <a class="nav-Link dropdown-toggle" href="#" id="navbarDropdownUser" role="button"
+                data-bs-toggle="dropdown" aria-expanded="false">{{ Auth::user()->name }}</a>
+
+              <ul class="dropdown-menu" aria-labelledby="navbarDropdownUser">
+                <li><a class="dropdown-item" href="{{ route('profile.show') }}" id="navbarDropdownEditProfile">
+                  {{ __('Profile') }}</a></li>
+                <li>
+                  <form method="POST" action="{{ route('logout') }}">
+                    @csrf
+                    <a class="dropdown-item"  href="{{ route('logout') }}" id="navbarDropdownLogOut" 
+                      onclick="event.preventDefault();this.closest('form').submit();">
+                        {{ __('Cerrar Sesión') }}
+                    </a>
+                  </form>
+                </li>
+              </ul>
+
             </li>
           </ul>
         </div>
