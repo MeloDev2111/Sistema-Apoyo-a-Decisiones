@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Incidencia;
+use App\Models\User;
+use Auth;
 
 class IncidenciaController extends Controller
 {
@@ -57,7 +59,12 @@ class IncidenciaController extends Controller
      */
     public function edit($id)
     {
-
+      $datos["incidente"] = Incidencia::find($id);
+      $datos["usuario"] = User::find($datos["incidente"]["idUsuario"]);
+      // problema de seguridad: verificar que el que edite sea el emisor //solved?
+      return ($datos["incidente"]["idUsuario"] == Auth::user() -> id 
+              && $datos["incidente"]["estado"] == "Pendiente"
+            ) ? view("incidencia.edit", $datos) :  redirect('incidencias')->with('Mensaje','Error al Modificar');;
     }
 
     /**

@@ -27,4 +27,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/register', function () {
   return view('auth.register');
 })->name('register');
 
-Route::get('incidencias', 'IncidenciaController@index')->middleware(['auth']);
+Route::resource('incidencias', 'IncidenciaController')->middleware(['auth']);

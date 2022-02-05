@@ -48,8 +48,8 @@
                         <td>
                         @switch($item -> estado)
                           @case("Pendiente")
-                            <a class="btn btn-info btn-sm" href="{{url('/incidentes/'.$item->id.'/editar')}}">Editar</a>
-                            <form action="{{url('/incidentes/'.$item->id)}}" method="post">
+                            <a class="btn btn-info btn-sm" href="{{url('/incidencias/'.$item->id.'/editar')}}">Editar</a>
+                            <form action="{{url('/incidencias/'.$item->id)}}" method="post">
                                 @csrf
                                 {{method_field('DELETE')}}
 
