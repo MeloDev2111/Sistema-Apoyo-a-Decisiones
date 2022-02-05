@@ -76,7 +76,22 @@ class IncidenciaController extends Controller
      */
     public function update(Request $request, $id)
     {
+      $datosVista=request()->all();
 
+      $datosIncidencia=[
+        'idUsuario'=>$datosVista['idUsuario'],
+        'titulo'=>$datosVista['title'],
+        'descripcion'=>$datosVista['descripcion'],
+        'estado'=>$datosVista['estado'],
+      ];
+
+      try {
+        Incidencia::where("id","=",$id)->update($datosIncidencia);
+        return redirect('incidencias')->with('Mensaje','Modificado con exito');
+      } catch (\Throwable $th) {
+        printf($th);
+        return redirect('incidencias')->with('Mensaje','Error al Modificar');
+      }
     }
 
     /**
