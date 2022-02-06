@@ -28,3 +28,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/register', function () {
 })->name('register');
 
 Route::resource('incidencias', 'IncidenciaController')->middleware(['auth']);
+Route::get('incidencias/aceptar/{incidencia_id}', 'IncidenciaController@aceptar')->middleware(['auth']);

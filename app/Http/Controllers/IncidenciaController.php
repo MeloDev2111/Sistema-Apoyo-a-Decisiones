@@ -130,4 +130,14 @@ class IncidenciaController extends Controller
         return redirect('incidencias')->with('Mensaje','Error al Eliminar');
       }
     }
+
+    public function aceptar($id){
+      try {
+        Incidencia::where('id','=',$id)->update(["estado"=>"Aceptado"]);
+        return redirect('incidencias')->with('Mensaje','Modificado con exito');
+      } catch (\Throwable $th) {
+        printf($th);
+        //return redirect('incidencias')->with('Mensaje','Error al Modificar');
+      }
+    }
 }
