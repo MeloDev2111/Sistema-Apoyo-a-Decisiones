@@ -28,6 +28,7 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/register', function () {
   return view('auth.register');
 })->name('register');
 
+<<<<<<< HEAD
 /*
 Route::get('/register', function () {
     return view('auth.register');
@@ -36,3 +37,9 @@ Route::get('/register', function () {
 Route::get('/permisos',[PermisoController::class,'index'])->name('permisos');
 Route::post('/savePermiso',[PermisoController::class, 'savePermiso'])->name('savePermiso');
 Route::get('/showPermisos/{id}/show',[PermisoController::class,'show'])->name('showPermisos')->middleware('permiso:root'); // ejem para usar el los permisos
+=======
+Route::resource('incidencias', 'IncidenciaController')->middleware(['auth']);
+Route::get('incidencias/aceptar/{incidencia_id}', 'IncidenciaController@aceptar')->middleware(['auth']);
+Route::get('incidencias/rechazar/{incidencia_id}', 'IncidenciaController@rechazar')->middleware(['auth']);
+Route::get('incidencias/cerrar/{incidencia_id}', 'IncidenciaController@cerrar')->middleware(['auth']);
+>>>>>>> 21f81f72c69beb8c0092de5394a89470355aa5d1

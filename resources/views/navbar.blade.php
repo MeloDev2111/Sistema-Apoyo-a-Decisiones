@@ -23,7 +23,7 @@
     <nav id="nav" style="max-width:100%" class="navbar navbar-expand-md navbar-dark bg-dark container fixed-top">
       <div class="container-fluid">
         <a class="navbar-brand" href="">
-          <img src="images/logo_Meta.png" alt="" width="36" height="24" class="d-inline-block align-text-top">
+          <img src="{{asset('images/logo_Meta.png')}}" alt="" width="36" height="24" class="d-inline-block align-text-top">
           Meta CORP
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
