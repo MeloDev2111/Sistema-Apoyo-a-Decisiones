@@ -122,6 +122,12 @@ class IncidenciaController extends Controller
      */
     public function destroy($id)
     {
-
+      try {
+        $incidencia = Incidencia::where('id','=',$id);
+        $incidencia->delete();
+        return redirect('incidencias')->with('Mensaje','Expediente eliminado con exito');
+      } catch (\Throwable $th) {
+        return redirect('incidencias')->with('Mensaje','Error al Eliminar');
+      }
     }
 }

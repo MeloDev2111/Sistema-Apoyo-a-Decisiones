@@ -4,10 +4,6 @@
 @endsection
 
 @section('contenido')
-  <!--<div class="text-center bg-Light p-5 rounded">
-    <h1 class="mt-4 pt-4">Listado de Incidencias</h1>
-  </div>
-  -->
   <div class = "container p-2">
     @if (Session::has('Mensaje'))
         <div class="alert alert-success" role="alert">
@@ -53,7 +49,7 @@
                                 @csrf
                                 {{method_field('DELETE')}}
 
-                                <input type="submit" onclick="return confirm('Desea borrar?');" class="btn btn-danger btn-sm" value="Borrar"/>
+                                <input type="submit" onclick="return confirm('Desea borrar incidencia {{$item->id}}?');" class="btn btn-danger btn-sm" value="Borrar"/>
                             </form>
                             <!-- Cuando se integre admin se borran estos botones-->
                             <a class="btn btn-success btn-sm" href='/incidencias/aceptar/{{$item -> id}}'>Aceptar</a>
