@@ -43,13 +43,22 @@
             <li>
               <hr class="dropdown-divider">
             </li>
-            
+              @can('root')
             <li class="nav-item dropdown">
-              <a href="{{ route('register') }}" class="nav-Link" 
+              <a href="{{ route('register') }}" class="nav-Link"
                 id="navbarDropdownRegister" role="button">
                 Register
               </a>
             </li>
+              @endcan
+
+
+              <li class="nav-item dropdown">
+                  <a href="{{route('permisos')}}" class="nav-Link"
+                     id="navbarDropdownRegister" role="button">
+                      Permisos
+                  </a>
+              </li>
 
             <li class="nav-item dropdown">
               <a class="nav-Link dropdown-toggle" href="#" id="navbarDropdownUser" role="button"
@@ -61,7 +70,7 @@
                 <li>
                   <form method="POST" action="{{ route('logout') }}">
                     @csrf
-                    <a class="dropdown-item"  href="{{ route('logout') }}" id="navbarDropdownLogOut" 
+                    <a class="dropdown-item"  href="{{ route('logout') }}" id="navbarDropdownLogOut"
                       onclick="event.preventDefault();this.closest('form').submit();">
                         {{ __('Cerrar Sesión') }}
                     </a>
