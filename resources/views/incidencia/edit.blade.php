@@ -2,7 +2,6 @@
 @section('titulo')
     Meta SAC
 @endsection
-<!-- No olvidar modificar el navbar en la parte del logo con assert-->
 @section('contenido')
   @if (count($errors)>0)
   <div class="alert alert-danger" role="alert">
