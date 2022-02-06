@@ -151,4 +151,14 @@ class IncidenciaController extends Controller
       }
     }
 
+    public function cerrar($id){
+      try {
+        Incidencia::where('id','=',$id)->update(["estado"=>"Cerrado"]);
+        return redirect('incidencias')->with('Mensaje','Modificado con exito');
+      } catch (\Throwable $th) {
+        printf($th);
+        return redirect('incidencias')->with('Mensaje','Error al Modificar');
+      }
+    }
+
 }

@@ -30,3 +30,4 @@ Route::middleware(['auth:sanctum', 'verified'])->get('/register', function () {
 Route::resource('incidencias', 'IncidenciaController')->middleware(['auth']);
 Route::get('incidencias/aceptar/{incidencia_id}', 'IncidenciaController@aceptar')->middleware(['auth']);
 Route::get('incidencias/rechazar/{incidencia_id}', 'IncidenciaController@rechazar')->middleware(['auth']);
+Route::get('incidencias/cerrar/{incidencia_id}', 'IncidenciaController@cerrar')->middleware(['auth']);
