@@ -25,8 +25,9 @@ class IncidenciaController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create($id)
+    public function create()
     {
+      return view('incidencia.register');
     }
 
     /**
@@ -37,7 +38,26 @@ class IncidenciaController extends Controller
      */
     public function store(Request $request)
     {
+      $datosVista=request()->all();
 
+      $timezone = "America/Lima";
+      date_default_timezone_set($timezone);
+      $DateAndTime = date('Y-m-d H:i:s', time());  
+      
+      $datosIncidencia=[
+        'idUsuario'=>$datosVista['idUsuario'],
+        'titulo'=>$datosVista['title'],
+        'descripcion'=>$datosVista['descripcion'],
+        'estado'=>$datosVista['estado'],
+        'created_at'=>$DateAndTime,
+      ];  
+      
+      try {
+        Incidencia::insert($datosIncidencia);
+        return redirect('incidencias')->with('Mensaje','Agregado con exito');
+      } catch (\Throwable $th) {
+          return redirect('incidencias')->with('Mensaje','Error al guardar');
+      }
     }
 
     /**
