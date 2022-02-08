@@ -11,10 +11,10 @@
     integrity="sha384-QJHtvGhmr9XOIpI6YVutG+2QOK9T+ZnN4kzFN1RtK3zEFEIsxhlmWl5/YESvpZ13"
     crossorigin="anonymous"></script>
 
-  <title>@yield("titulo")Meta SAC</title>
+  <title>@yield("titulo")</title>
   <link rel="icon" href="{{asset('images/logo_Meta.png')}}">
   <link rel="stylesheet" href="{{asset('css/style.css')}}">
-  <script lang="JavaScript" src="{{asset('js/IncidenciasController.js')}}" defer></script>
+  <script lang="JavaScript" src="{{asset('js/DashboardController.js')}}" defer></script>
 
 </head>
 
@@ -22,7 +22,7 @@
   <header class="site-header">
     <nav id="nav" style="max-width:100%" class="navbar navbar-expand-md navbar-dark bg-dark container fixed-top">
       <div class="container-fluid">
-        <a class="navbar-brand" href="">
+        <a class="navbar-brand" href="{{route('dashboard')}}">
           <img src="{{asset('images/logo_Meta.png')}}" alt="" width="36" height="24" class="d-inline-block align-text-top">
           Meta CORP
         </a>
@@ -36,29 +36,28 @@
               <a class="nav-Link dropdown-toggle" href="#" id="navbarDropdownIncidencias" role="button"
                 data-bs-toggle="dropdown" aria-expanded="false">Incidencias</a>
               <ul class="dropdown-menu" aria-labelledby="navbarDropdownIncidencias">
-                <li><a class="dropdown-item" href="">Registrar Incidencia</a></li>
-                <li><a class="dropdown-item" href="">Monitorear Incidencia</a></li>
+                <li><a class="dropdown-item" href="{{ route('incidencias.create') }}">Registrar Incidencia</a></li>
+                <li><a class="dropdown-item" href="{{ route('incidencias.index') }}">Visualizar Incidencias</a></li>
               </ul>
             </li>
             <li>
               <hr class="dropdown-divider">
             </li>
-              @can('root')
+
+            @can('root')
             <li class="nav-item dropdown">
               <a href="{{ route('registro') }}" class="nav-Link"
                 id="navbarDropdownRegister" role="button">
                 Register
               </a>
             </li>
-              @endcan
-
-
-              <li class="nav-item dropdown">
-                  <a href="{{route('permisos')}}" class="nav-Link"
-                     id="navbarDropdownRegister" role="button">
-                      Permisos
-                  </a>
-              </li>
+            <li class="nav-item dropdown">
+              <a href="{{route('permisos')}}" class="nav-Link"
+                id="navbarDropdownRegister" role="button">
+                  Permisos
+              </a>
+            </li>
+            @endcan
 
             <li class="nav-item dropdown">
               <a class="nav-Link dropdown-toggle" href="#" id="navbarDropdownUser" role="button"

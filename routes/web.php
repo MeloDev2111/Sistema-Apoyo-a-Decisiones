@@ -34,8 +34,8 @@ Route::get('/register', function () {
     return view('auth.register');
 })->name('register');*/
 
-Route::get('/permisos',[PermisoController::class,'index'])->name('permisos');
-Route::post('/savePermiso',[PermisoController::class, 'savePermiso'])->name('savePermiso');
+Route::get('/permisos',[PermisoController::class,'index'])->name('permisos')->middleware('permiso:root');
+Route::post('/savePermiso',[PermisoController::class, 'savePermiso'])->name('savePermiso')->middleware('permiso:root');
 Route::get('/showPermisos/{id}/show',[PermisoController::class,'show'])->name('showPermisos')->middleware('permiso:root'); // ejem para usar el los permisos
 Route::resource('incidencias', 'IncidenciaController')->middleware(['auth']);
 Route::get('incidencias/aceptar/{incidencia_id}', 'IncidenciaController@aceptar')->middleware(['auth']);
