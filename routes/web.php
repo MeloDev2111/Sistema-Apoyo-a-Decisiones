@@ -38,8 +38,8 @@ Route::get('/permisos',[PermisoController::class,'index'])->name('permisos')->mi
 Route::post('/savePermiso',[PermisoController::class, 'savePermiso'])->name('savePermiso')->middleware('permiso:root');
 Route::get('/showPermisos/{id}/show',[PermisoController::class,'show'])->name('showPermisos')->middleware('permiso:root'); // ejem para usar el los permisos
 Route::resource('incidencias', 'IncidenciaController')->middleware(['auth']);
-Route::get('incidencias/aceptar/{incidencia_id}', 'IncidenciaController@aceptar')->middleware(['auth']);
-Route::get('incidencias/rechazar/{incidencia_id}', 'IncidenciaController@rechazar')->middleware(['auth']);
-Route::get('incidencias/cerrar/{incidencia_id}', 'IncidenciaController@cerrar')->middleware(['auth']);
+Route::get('incidencias/aceptar/{incidencia_id}', 'IncidenciaController@aceptar')->middleware('permiso:root');
+Route::get('incidencias/rechazar/{incidencia_id}', 'IncidenciaController@rechazar')->middleware('permiso:root');
+Route::get('incidencias/cerrar/{incidencia_id}', 'IncidenciaController@cerrar')->middleware('permiso:root');
 Route::get('/registerUser',[RegisterUserController::class, 'registerUser'])->name('registro');
 Route::post('/saveUser',[RegisterUserController::class, 'saveUser'])->name('guardarUsuario');
