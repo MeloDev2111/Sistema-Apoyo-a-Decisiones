@@ -12,8 +12,8 @@ class PermisoController extends Controller
 {
     public function index(){
         $user = User::all();
-        $roles = Role::all();
-        return view('permisos',compact('user','roles'));
+
+        return view('permisos',compact('user'));
     }
 
     public function savePermiso(Request $request){

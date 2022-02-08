@@ -45,7 +45,7 @@
             </li>
               @can('root')
             <li class="nav-item dropdown">
-              <a href="{{ route('register') }}" class="nav-Link"
+              <a href="{{ route('registro') }}" class="nav-Link"
                 id="navbarDropdownRegister" role="button">
                 Register
               </a>

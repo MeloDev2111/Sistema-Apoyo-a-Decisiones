@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\PermisoController;
+use App\Http\Controllers\RegisterUserController;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -40,3 +41,5 @@ Route::resource('incidencias', 'IncidenciaController')->middleware(['auth']);
 Route::get('incidencias/aceptar/{incidencia_id}', 'IncidenciaController@aceptar')->middleware(['auth']);
 Route::get('incidencias/rechazar/{incidencia_id}', 'IncidenciaController@rechazar')->middleware(['auth']);
 Route::get('incidencias/cerrar/{incidencia_id}', 'IncidenciaController@cerrar')->middleware(['auth']);
+Route::get('/registerUser',[RegisterUserController::class, 'registerUser'])->name('registro');
+Route::post('/saveUser',[RegisterUserController::class, 'saveUser'])->name('guardarUsuario');
