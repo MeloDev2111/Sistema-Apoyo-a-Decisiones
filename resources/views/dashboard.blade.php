@@ -1,15 +1,17 @@
-<x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Dashboard') }}
-        </h2>
-    </x-slot>
+@extends('navbar')
+@section('titulo',' Meta SAC')
+@section('contenido')
+  <div class="text-center bg-Light p-5 rounded">
+    <img src="{{asset('images/logo_Meta.png')}}" alt="" class="img img-fluid">
+    <h1 class="mt-4 pt-4">Bienvenidos a Meta CORP</h1>
+    <p class="lead">
+      Sistema de Apoyo a Decisiones para mejorar el área de ventas de la Empresa Adventure Works Cycles
 
-    <div class="py-12">
-        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg">
-                <x-jet-welcome />
-            </div>
-        </div>
-    </div>
-</x-app-layout>
+    </p>
+    <br><br>
+    <a class="btn btn-lg btn-primary" onclick="loadBI();" role="button">
+      Continuar &raquo;</a>
+
+  </div>
+@endsection
+@extends('footer')
