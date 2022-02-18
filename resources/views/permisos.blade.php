@@ -1,7 +1,21 @@
 @extends('navbar')
 @section('titulo',' Meta SAC')
 @section('contenido')
-<h1>Asignar Permisos A Usuarios</h1>
+<style>
+    .contenedor{
+        margin: 50px;
+        display: flex;
+        justify-content: center;
+    }
+    .contenedor .bloque{
+        width: 80%;
+    }
+    
+</style>
+<div class="contenedor">
+    <div class="bloque">
+    <h1>Visualizar permisos de <span class="badge bg-secondary">Usuarios</span></h1>
+
 <table class="table">
     <thead>
     <tr>
@@ -24,8 +38,8 @@
     @endforeach
     </tbody>
 </table>
-
-
+</div>
+</div>
 
 @endsection
 @extends('footer')
